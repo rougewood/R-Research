@@ -1,0 +1,5 @@
+#install.packages("changepoint")
+library(changepoint)
+set.seed(10)
+m.data=c(rnorm(100,0,1),rnorm(100,1,1),rnorm(100,0,1),rnorm(100,0.2,1))
+ts.plot(m.data,xlab='Index')
