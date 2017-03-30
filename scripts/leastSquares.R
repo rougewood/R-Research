@@ -54,14 +54,15 @@ fit$qr
 
 names <- c("Time","Price")
 
-rows <- 2000
-df.Trades <- read.csv(file="~/RProjects/data/ES_Sample/ES_Trades.csv",nrows=rows)
+rows <- 1000
+df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",nrows=rows)
 names <- colnames(df.Trades)
 head(df.Trades, rows)
 plot(df.Trades[["Time"]],df.Trades[["Price"]],
      main="Commercial Banks Interest Rate for 4 Year Car Loan",
      sub="http://www.federalreserve.gov/releases/g19/20050805/")
 length(df.Trades[["Price"]])
+
 cor(c(1:rows),df.Trades[["Price"]])
 fit <- lm(df.Trades[["Price"]] ~ df.Trades[["Time"]])
 fit$coefficients[2]
@@ -73,7 +74,7 @@ squareRoot
 
 
 
-df.Trades <- read.csv(file="~/RProjects/data/ES_Sample/ES_Trades.csv",skip=800, nrows=800)
+df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",skip=800, nrows=800)
 colnames(df.Trades) <- names
 head(df.Trades, 10)
 length(df.Trades[["Price"]])
@@ -84,7 +85,7 @@ length(df.Trades[["Price"]])
 cor(c(1:800),df.Trades[["Price"]])
 
 
-df.Trades <- read.csv(file="~/RProjects/data/ES_Sample/ES_Trades.csv",skip=1600, nrows=800)
+df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",skip=1600, nrows=800)
 colnames(df.Trades) <- names
 head(df.Trades, 10)
 length(df.Trades[["Price"]])
@@ -94,7 +95,7 @@ plot(df.Trades[["Time"]],df.Trades[["Price"]],
 length(df.Trades[["Price"]])
 cor(c(1:800),df.Trades[["Price"]])
 
-df.Trades <- read.csv(file="~/RProjects/data/ES_Sample/ES_Trades.csv",skip=2400, nrows=800)
+df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",skip=2400, nrows=800)
 colnames(df.Trades) <- names
 head(df.Trades, 10)
 length(df.Trades[["Price"]])
@@ -105,3 +106,4 @@ length(df.Trades[["Price"]])
 cor(c(1:800),df.Trades[["Price"]])
 fit <- lm(df.Trades[["Price"]] ~ df.Trades[["Time"]])
 fit
+
