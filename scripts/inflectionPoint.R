@@ -7,5 +7,5 @@ out = predict(lo,xl)
 lines(xl, out, col='red', lwd=2)
 
 infl <- c(FALSE, diff(diff(out)>0)!=0)
-
+print(diff(out))
 points(xl[infl ], out[infl ], col="blue")
