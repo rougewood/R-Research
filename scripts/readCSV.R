@@ -14,7 +14,7 @@ tail(df.Trades)
 
 
 library(TTR)
-df.Trades <- read.csv(file="~/RProjects/data/ES_Sample/ES_Trades.csv",nrows=10000)
+df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",nrows=10000)
 a <-runSD(df.Trades$Price, 1000)
 head(a,2000)
 plot(a,col="red")
