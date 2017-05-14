@@ -2,7 +2,8 @@ set.seed(20160227)
 x<-seq(0,50,1)
 y<-((runif(1,10,20)*x)/(runif(1,0,10)+x))+rnorm(51,0,1)
 #for simple models nls find good starting values for the parameters even if it throw a warning
-m<-nls(y~a*x/(b+x))
+#m<-nls(y~a*x/(b+x))
+m<-nls(y~a*x-b)
 #get some estimation of goodness of fit
 cor(y,predict(m))
 
@@ -67,7 +68,7 @@ cor(c(1:rows),df.Trades[["Price"]])
 fit <- lm(df.Trades[["Price"]] ~ df.Trades[["Time"]])
 fit$coefficients[2]
 abline(fit)
-plot(df.Trades[["Time"]],fit$residuals)
+#plot(df.Trades[["Time"]],fit$residuals)
 residualSquare <-fit$residuals ^ 2
 squareRoot <- sqrt(sum(residualSquare)/rows)
 squareRoot
@@ -95,7 +96,7 @@ plot(df.Trades[["Time"]],df.Trades[["Price"]],
 length(df.Trades[["Price"]])
 cor(c(1:800),df.Trades[["Price"]])
 
-df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",skip=2400, nrows=800)
+df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv",skip=2000, nrows=800)
 colnames(df.Trades) <- names
 head(df.Trades, 10)
 length(df.Trades[["Price"]])

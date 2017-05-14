@@ -32,3 +32,4 @@ for(i in 1:5)
   plot.ts(ibmv.la8[[i]], axes=FALSE, ylab=names(ibmv.la8)[i])
 axis(side=1, at=seq(0,368,by=23), 
      labels=c(0,"",46,"",92,"",138,"",184,"",230,"",276,"",322,"",368))
+
