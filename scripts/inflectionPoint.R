@@ -14,7 +14,7 @@ infl <- c(FALSE, diff(diff(out)>0)<0)
 print(diff(out))
 points(xl[infl ], out[infl ], col="red")
 
-rows = 150000
+rows = 2048
 
 df.Trades <- read.csv(file="~/R-Research/data/ES_Sample/ES_Trades.csv", nrows=rows)
 names <- colnames(df.Trades)
@@ -32,7 +32,7 @@ t = seq(1, rows, 1)
 
 plot(t,p)
 #lo <- nls(p~a + b*t^2, start = list(a = 0.12345, b = 0.54321))
-lo <- loess(p~t,span=0.2, degree=2)
+lo <- loess(p~t,span=0.3, degree=2)
 out1 = predict(lo, t)
 
 lines(t, out1, col='red', lwd=2)
@@ -46,6 +46,15 @@ print(diff(out1))
 points(t[infl ], out1[infl ], col="red", type="b")
 
 colMax <- function(data) sapply(data, max, na.rm = TRUE)
+
+#install.packages("wavethresh")
+library(wavethresh)
+
+
+wy <- wd(p)
+thresh <- threshold(wy, type="soft")
+yr <- wr(thresh)
+lines(t, yr)
 
 install.packages("quantmod")
 library(quantmod)
